@@ -1,0 +1,13 @@
+.item {
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 1px hidden red;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid red;
+  }
+}
+
+.selected {
+  color: red;
+}

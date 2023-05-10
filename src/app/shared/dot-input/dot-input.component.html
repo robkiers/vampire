@@ -1,0 +1,10 @@
+<div class="dot-input">
+  <div *ngFor="let num of nums">
+    <input
+      type="radio"
+      [value]="num"
+      (click)="updateValue(num)"
+      [checked]="markForCheck(num)"
+    />
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="inputContainer">
+  <span *ngIf="!!label">{{ label }}</span>
+  <input
+    [disabled]="disabled"
+    [value]="value"
+    (blur)="markAsTouched()"
+    (keyup)="change($event)"
+    class="fullwidth"
+  />
+</div>

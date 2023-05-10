@@ -1,0 +1,17 @@
+<div class="ability-container">
+  <span>{{ label }}</span>
+  <input
+    [disabled]="disabled"
+    [value]="value.specialty"
+    (keyup)="onSpecialtyChange($event)"
+    (focus)="markAsTouched()"
+    class="fullwidth specialty"
+  />
+  <app-dot-input
+    [max]="max"
+    [value]="value.score"
+    (scoreValue)="onScoreChange($event)"
+    (keyup)="onScoreChange($event)"
+    (focus)="markAsTouched()"
+  ></app-dot-input>
+</div>

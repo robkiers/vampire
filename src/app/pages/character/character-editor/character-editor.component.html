@@ -1,0 +1,141 @@
+<form [formGroup]="characterForm">
+  <div class="container">
+    <h1 class="header">Vampire</h1>
+    <div class="general">
+      <ng-container *ngFor="let control of controls.general">
+        <app-form-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+        ></app-form-input>
+      </ng-container>
+    </div>
+    <h2 class="attributesTitle">Attributes</h2>
+    <div class="attributes1">
+      <h3>Physical</h3>
+      <ng-container *ngFor="let control of controls.physical">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="attributes2">
+      <h3>Social</h3>
+      <ng-container *ngFor="let control of controls.social">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="attributes3">
+      <h3>Mental</h3>
+      <ng-container *ngFor="let control of controls.mental">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <h2 class="abilitiesTitle">Abilities</h2>
+    <div class="abilities1">
+      <h3>Talents</h3>
+      <ng-container *ngFor="let control of controls.talent">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="abilities2">
+      <h3>Skills</h3>
+      <ng-container *ngFor="let control of controls.skill">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="abilities3">
+      <h3>Knowledges</h3>
+      <ng-container *ngFor="let control of controls.knowledge">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <h2 class="advantagesTitle">Advantages</h2>
+    <div class="advantages1">
+      <h3>Disciplines</h3>
+      <ng-container *ngFor="let control of controls.discipline">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="advantages2">
+      <h3>Backgrounds</h3>
+      <ng-container *ngFor="let control of controls.background">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [max]="control.max"
+        ></app-ability-input
+      ></ng-container>
+    </div>
+    <div class="advantages3">
+      <h3>Virtues</h3>
+      <ng-container *ngFor="let control of controls.virtue">
+        <app-ability-input
+          formControlName="{{ control.name }}"
+          [label]="control.label"
+          [max]="control.max"
+        ></app-ability-input>
+      </ng-container>
+    </div>
+    <div class="otherTitle"></div>
+    <div class="other1">
+      <h3>Other Traits</h3>
+      <textarea name="Text1" rows="5" formControlName="otherTraits"></textarea>
+    </div>
+    <div class="other2">
+      <h3>Road</h3>
+      <app-form-input
+        formControlName="{{ controls.other[0].name }}"
+      ></app-form-input>
+      <app-ability-input
+        formControlName="{{ controls.other[1].name }}"
+        [max]="controls.other[1].max"
+      ></app-ability-input>
+      <app-form-input
+        formControlName="{{ controls.other[2].name }}"
+        label="Aura"
+      ></app-form-input>
+      <h3>Willpower</h3>
+      <app-ability-input
+        formControlName="{{ controls.other[3].name }}"
+        [label]="controls.other[3].label"
+        [max]="controls.other[3].max"
+      ></app-ability-input>
+      <h3>Blood Pool</h3>
+      <app-ability-input
+        formControlName="{{ controls.other[4].name }}"
+        [label]="controls.other[4].label"
+        [max]="controls.other[4].max"
+      ></app-ability-input>
+    </div>
+    <div class="other3">
+      <h3>Health</h3>
+      <!-- <h3>Weakness</h3> -->
+    </div>
+  </div>
+</form>
+<app-button (click)="submit()">submit</app-button>
+<app-button>Print</app-button>

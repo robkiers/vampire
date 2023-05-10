@@ -1,0 +1,6 @@
+<div>
+  <div *ngFor="let character of list" class="item">
+    <span [ngClass]="{ selected: character.id === selectedId }">• </span>
+    <span>{{ character.characterName }} ({{ character.clan }})</span>
+  </div>
+</div>

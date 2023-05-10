@@ -1,0 +1,16 @@
+.ability-container {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid black;
+  padding: 0.2rem;
+  input {
+    width: 100%;
+  }
+}
+
+.specialty {
+  &:hover {
+    background-color: lightgray;
+    transition: background-color 1000ms linear;
+  }
+}

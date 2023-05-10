@@ -1,0 +1,9 @@
+.inputContainer {
+    gap: 0.5rem;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+input {
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.1);
+}

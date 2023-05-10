@@ -1,0 +1,23 @@
+<div class="overviewContainer">
+  <div class="border">
+    <h2>Music</h2>
+  </div>
+  <div class="border">
+    <h2>Mode</h2>
+    <app-button (click)="toggleMode()">Toggle Mode</app-button>
+    <!-- <app-button (click)="toggleMode()">View Mode</app-button> -->
+    <h2>Player List</h2>
+    <app-list [list]="playerList"></app-list>
+    <h2>Quick List</h2>
+    <app-list [list]="characterList"></app-list>
+    <h2>Full list</h2>
+    <span>search</span>
+    <app-list [list]="characterList"></app-list>
+    <app-button>Create new</app-button>
+  </div>
+  <app-character-editor
+    class="border"
+    *ngIf="mode === 'VIEWMODE'"
+  ></app-character-editor>
+  <app-combat-overview *ngIf="mode === 'COMBATMODE'"></app-combat-overview>
+</div>
