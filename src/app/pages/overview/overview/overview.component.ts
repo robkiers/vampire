@@ -1,9 +1,22 @@
 import { Component } from '@angular/core';
+import { CombatOverviewComponent } from '../../combat/combat-overview/combat-overview.component';
+import { CharacterEditorComponent } from '../../character/character-editor/character-editor.component';
+import { NgIf } from '@angular/common';
+import { ListComponent } from '../../../shared/list/list.component';
+import { ButtonComponent } from '../../../shared/button/button.component';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss'],
+    selector: 'app-overview',
+    templateUrl: './overview.component.html',
+    styleUrls: ['./overview.component.scss'],
+    standalone: true,
+    imports: [
+        ButtonComponent,
+        ListComponent,
+        NgIf,
+        CharacterEditorComponent,
+        CombatOverviewComponent,
+    ],
 })
 export class OverviewComponent {
   characterList = [

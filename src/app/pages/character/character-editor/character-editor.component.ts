@@ -1,16 +1,23 @@
 import { Component, Input } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Ability, Character } from 'src/app/core/interface/character';
+import { ButtonComponent } from '../../../shared/button/button.component';
+import { AbilityInputComponent } from '../../../shared/ability-input/ability-input.component';
+import { FormInputComponent } from '../../../shared/form-input/form-input.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-character-editor',
-  templateUrl: './character-editor.component.html',
-  styleUrls: ['./character-editor.component.scss'],
+    selector: 'app-character-editor',
+    templateUrl: './character-editor.component.html',
+    styleUrls: ['./character-editor.component.scss'],
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        NgFor,
+        FormInputComponent,
+        AbilityInputComponent,
+        ButtonComponent,
+    ],
 })
 export class CharacterEditorComponent {
   @Input() character: Character = new Character();
