@@ -6,7 +6,7 @@ export class BaseCharacter {
   isPlayer: boolean = false;
   characterName: string = '';
   playerName: string = '';
-  chronicle: string = '';
+  chronicleName: string = '';
 }
 
 export class Character {
@@ -279,13 +279,19 @@ export type Era = 'MODERN' | 'MEDIEVAL';
 
 export interface CharacterLookup {
   name: string;
-  id: string;
-  chronicle: string[];
+  id: number;
+  chronicle: Chronicle[];
+  era: 'MEDIEVAL';
+  version: 'V20' | 'V5' | 'V2';
+  type: 'VAMPIRE';
 }
 
 export interface Chronicle {
   name: string;
-  id: string;
+  id: number;
+  era: Era;
+  version: 'V20' | 'V5' | 'V2';
+  type: 'VAMPIRE' | 'MAGE' | 'HUMAN';
 }
 
 // interface IGetUserFullName {
