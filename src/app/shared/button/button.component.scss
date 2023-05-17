@@ -50,6 +50,17 @@
       0.6em 1px
     );
   }
+  &:disabled {
+    cursor: unset;
+    opacity: 0.5;
+    &:hover {
+      background-color: unset;
+      transition: unset;
+      &:before {
+        background-color: black;
+      }
+    }
+  }
   &:hover {
     background-color: lightgrey;
     transition: background-color 500ms linear;

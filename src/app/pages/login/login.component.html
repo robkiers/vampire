@@ -1,7 +1,9 @@
 <div class="container">
-  <div>
-    <app-form-input></app-form-input> <app-form-input class="margin-left"></app-form-input>
+  <h1>The World of Darkness</h1>
+  <form>
+    <app-form-input></app-form-input>
+    <app-form-input class="margin-left"></app-form-input>
     <app-button (click)="logIn()">Log in</app-button>
-  </div>
-  <app-button disabled>Create account</app-button>
+    <app-button [disabled]="true">Create account</app-button>
+  </form>
 </div>

@@ -284,6 +284,7 @@ export interface CharacterLookup {
   era: 'MEDIEVAL';
   version: 'V20' | 'V5' | 'V2';
   type: 'VAMPIRE';
+  clan: string;
 }
 
 export interface Chronicle {

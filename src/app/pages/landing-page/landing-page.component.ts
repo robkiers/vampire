@@ -52,6 +52,7 @@ export class LandingPageComponent {
         era: 'MEDIEVAL',
         version: 'V20',
         type: 'VAMPIRE',
+        clan: 'ventrue',
       },
       {
         name: 'Kearthe',
@@ -68,6 +69,7 @@ export class LandingPageComponent {
         era: 'MEDIEVAL',
         version: 'V20',
         type: 'VAMPIRE',
+        clan: 'gangrel',
       },
     ];
   }

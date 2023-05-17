@@ -1,25 +1,27 @@
-<h1 class="header">Overview</h1>
-<div>
-  <div>
-    <h2>Story</h2>
-    <div>
+<div class="container">
+  <h1 class="header">Overview</h1>
+  <div class="storyPane">
+    <h2 class="panel">Story Vault</h2>
+    <div class="panel">
       <h3>Load story</h3>
       <div>
         <app-list [list]="storyList"></app-list>
       </div>
-      <!-- <app-button>Load</app-button> -->
     </div>
-    <div>
+    <div class="panel">
       <h3>Join story</h3>
       Input the story ID you would like to join and wait for the storyteller to
       approve your request.
       <app-form-input></app-form-input>
-      <app-button>Join</app-button>
+      <app-button [disabled]="true">Join</app-button>
     </div>
-    <app-button>Create new story</app-button>
+    <div class="panel">
+      <h3>Create story</h3>
+      <app-button [disabled]="true">Create new story</app-button>
+    </div>
   </div>
   <div>
-    <h2>Character Vault</h2>
+    <h2 class="panel">Character Vault</h2>
     <app-list [list]="characterList"></app-list>
   </div>
 </div>

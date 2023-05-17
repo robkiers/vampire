@@ -4,49 +4,76 @@ import { CharacterEditorComponent } from '../../character/character-editor/chara
 import { NgIf } from '@angular/common';
 import { ListComponent } from '../../../shared/list/list.component';
 import { ButtonComponent } from '../../../shared/button/button.component';
+import { CharacterLookup } from 'src/app/core/interface/character';
 
 @Component({
-    selector: 'app-overview',
-    templateUrl: './overview.component.html',
-    styleUrls: ['./overview.component.scss'],
-    standalone: true,
-    imports: [
-        ButtonComponent,
-        ListComponent,
-        NgIf,
-        CharacterEditorComponent,
-        CombatOverviewComponent,
-    ],
+  selector: 'app-overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.scss'],
+  standalone: true,
+  imports: [
+    ButtonComponent,
+    ListComponent,
+    NgIf,
+    CharacterEditorComponent,
+    CombatOverviewComponent,
+  ],
 })
 export class OverviewComponent {
-  characterList = [
+  characterList: CharacterLookup[] = [
     {
-      characterName: 'Citrio',
-      clan: 'Salubri',
+      name: 'Citrio',
       id: 1,
+      chronicle: [
+        {
+          name: 'Millenium',
+          id: 1,
+          era: 'MEDIEVAL',
+          version: 'V20',
+          type: 'VAMPIRE',
+        },
+      ],
+      era: 'MEDIEVAL',
+      version: 'V20',
+      type: 'VAMPIRE',
+      clan: 'ventrue',
     },
     {
-      characterName: 'John',
-      clan: 'Salubri',
+      name: 'Kearthe',
       id: 2,
-    },
-    {
-      characterName: 'Kearthe',
-      clan: 'Gangrel',
-      id: 3,
+      chronicle: [
+        {
+          name: 'Millenium',
+          id: 1,
+          era: 'MEDIEVAL',
+          version: 'V20',
+          type: 'VAMPIRE',
+        },
+      ],
+      era: 'MEDIEVAL',
+      version: 'V20',
+      type: 'VAMPIRE',
+      clan: 'gangrel',
     },
   ];
 
-  playerList = [
+  playerList: CharacterLookup[] = [
     {
-      characterName: 'Brian',
-      clan: 'Gangrel',
-      id: 4,
-    },
-    {
-      characterName: 'George',
-      clan: 'Tzimische',
-      id: 5,
+      name: 'Kearthe',
+      id: 3,
+      chronicle: [
+        {
+          name: 'Millenium',
+          id: 1,
+          era: 'MEDIEVAL',
+          version: 'V20',
+          type: 'VAMPIRE',
+        },
+      ],
+      era: 'MEDIEVAL',
+      version: 'V20',
+      type: 'VAMPIRE',
+      clan: 'gangrel',
     },
   ];
 
@@ -63,8 +90,8 @@ export class OverviewComponent {
   }
 }
 
-export interface characterList {
-  name: string;
-  clan: string;
-  id: number;
-}
+// export interface characterList {
+//   name: string;
+//   clan: string;
+//   id: number;
+// }

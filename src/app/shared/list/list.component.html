@@ -1,6 +1,7 @@
-<div>
-  <div *ngFor="let character of list" class="item">
-    <span [ngClass]="{ selected: character.id === selectedId }">• </span>
-    <span>{{ character.characterName }} ({{ character.clan }})</span>
+<div class="container">
+  <div *ngFor="let item of list" class="item">
+    <ng-container *ngIf="type === 'CHARACTER'"></ng-container>
+    <span [ngClass]="{ selected: item.id === selectedId }">• </span>
+    <span>{{ item.id }} {{ item.name }}</span>
   </div>
 </div>

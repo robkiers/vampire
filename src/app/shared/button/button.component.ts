@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent {}
+export class ButtonComponent {
+  @Input() disabled: boolean = false;
+  setDisabledState(disabled: boolean) {
+    this.disabled = disabled;
+  }
+}
