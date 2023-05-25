@@ -1,7 +1,13 @@
+:host {
+  display: block;
+}
 .inputContainer {
-    gap: 0.5rem;
-    display: flex;
-    border-bottom: 1px solid black;
+  gap: 0.5rem;
+  display: flex;
+  border-bottom: 1px solid black;
+  .input-label {
+    white-space: nowrap;
+  }
 }
 input {
   width: 100%;

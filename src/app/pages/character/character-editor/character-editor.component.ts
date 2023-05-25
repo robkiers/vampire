@@ -1,39 +1,46 @@
-import { Component, Input } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Ability, Character } from 'src/app/core/interface/character';
+import { Component, Input, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { Ability, Vampire } from 'src/app/core/interface/character';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { AbilityInputComponent } from '../../../shared/ability-input/ability-input.component';
 import { FormInputComponent } from '../../../shared/form-input/form-input.component';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-character-editor',
-    templateUrl: './character-editor.component.html',
-    styleUrls: ['./character-editor.component.scss'],
-    standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        NgFor,
-        FormInputComponent,
-        AbilityInputComponent,
-        ButtonComponent,
-    ],
+  selector: 'app-character-editor',
+  templateUrl: './character-editor.component.html',
+  styleUrls: ['./character-editor.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    NgFor,
+    FormInputComponent,
+    AbilityInputComponent,
+    ButtonComponent,
+  ],
 })
 export class CharacterEditorComponent {
-  @Input() character: Character = new Character();
+  @Input() character: Vampire = new Vampire();
+  formBuilder = inject(FormBuilder);
+
   controls: any;
   characterForm: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder) {
+  constructor() {
     this.controls = [];
     this.characterForm = this.createForm();
   }
-
   createForm(): FormGroup {
     const controls: Control[] = Object.entries(this.character).map(
       ([key, value]) => ({
         name: key,
-        label: key.charAt(0).toUpperCase() + key.slice(1),
+        label: key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()),
         max: 10,
         value:
           typeof value[1] === 'object'

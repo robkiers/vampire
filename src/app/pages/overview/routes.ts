@@ -13,7 +13,7 @@ export const OVERVIEW_ROUTES: Routes = [
     component: LandingPageComponent,
   },
   {
-    path: 'storyteller',
+    path: 'story/:id',
     component: OverviewComponent,
   },
   {

@@ -31,6 +31,7 @@ export class OverviewComponent {
           era: 'MEDIEVAL',
           version: 'V20',
           type: 'VAMPIRE',
+          storyTeller: 'Rob',
         },
       ],
       era: 'MEDIEVAL',
@@ -48,6 +49,7 @@ export class OverviewComponent {
           era: 'MEDIEVAL',
           version: 'V20',
           type: 'VAMPIRE',
+          storyTeller: 'Rob',
         },
       ],
       era: 'MEDIEVAL',
@@ -68,6 +70,7 @@ export class OverviewComponent {
           era: 'MEDIEVAL',
           version: 'V20',
           type: 'VAMPIRE',
+          storyTeller: 'Rob',
         },
       ],
       era: 'MEDIEVAL',
@@ -79,7 +82,7 @@ export class OverviewComponent {
 
   quickCharacterList: [] = [];
 
-  mode: 'COMBATMODE' | 'VIEWMODE' = 'COMBATMODE';
+  mode: 'COMBATMODE' | 'VIEWMODE' = 'VIEWMODE';
 
   toggleMode() {
     if (this.mode === 'COMBATMODE') {

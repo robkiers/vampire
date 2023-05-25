@@ -3,6 +3,9 @@
   gap: 0.5rem;
   border-bottom: 1px solid black;
   padding: 0.2rem;
+  .ability-label {
+    white-space: nowrap;
+  }
   input {
     width: 100%;
   }

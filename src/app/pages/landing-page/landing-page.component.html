@@ -1,14 +1,18 @@
 <div class="container">
   <h1 class="header">Overview</h1>
   <div class="storyPane">
-    <h2 class="panel">Story Vault</h2>
+    <h2>Story Vault</h2>
     <div class="panel">
       <h3>Load story</h3>
       <div>
-        <app-list [list]="storyList"></app-list>
+        <app-list
+          type="STORY"
+          [list]="storyList"
+          (selected)="gotToStory($event)"
+        ></app-list>
       </div>
     </div>
-    <div class="panel">
+    <div class="panel join">
       <h3>Join story</h3>
       Input the story ID you would like to join and wait for the storyteller to
       approve your request.
@@ -21,7 +25,14 @@
     </div>
   </div>
   <div>
-    <h2 class="panel">Character Vault</h2>
-    <app-list [list]="characterList"></app-list>
+    <h2>Character Vault</h2>
+    <div class="panel">
+      <h3>Load character</h3>
+      <app-list type="CHARACTER" [list]="characterList"></app-list>
+    </div>
+    <div class="panel">
+      <h3>Create character</h3>
+      <app-button [disabled]="true">Create new character</app-button>
+    </div>
   </div>
 </div>

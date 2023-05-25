@@ -3,9 +3,12 @@
   flex-direction: column;
 }
 .item {
-  display: inline-block;
+  height: 1.25em;
+  display: inline-flex;
+  gap: 1em;
   box-sizing: border-box;
   border-bottom: 1px hidden red;
+  margin-bottom: 2px;
   cursor: pointer;
   &:hover {
     border-bottom: 1px solid red;

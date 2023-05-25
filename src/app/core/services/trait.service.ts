@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Era } from '../interface/character';
 import { HttpService } from './http.service';
@@ -7,7 +7,9 @@ import { HttpService } from './http.service';
   providedIn: 'root',
 })
 export class TraitService {
-  constructor(private http: HttpService) {}
+  http = inject(HttpService);
+
+  constructor() {}
 
   getDisciplineList(era: Era): Observable<Trait[]> {
     return this.http.get<Trait[]>('discipline/' + era);
@@ -24,7 +26,7 @@ export class TraitService {
   getMeritList(era: Era): Observable<Trait[]> {
     return this.http.get<Trait[]>('merit/' + era);
   }
-  
+
   getFlawList(era: Era): Observable<Trait[]> {
     return this.http.get<Trait[]>('flaw/' + era);
   }

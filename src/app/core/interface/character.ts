@@ -9,16 +9,7 @@ export class BaseCharacter {
   chronicleName: string = '';
 }
 
-export class Character {
-  id: number = 0;
-  chronicleId: number = 0;
-  characterEra: Era = 'MEDIEVAL';
-  isPlayer: boolean = false;
-
-  characterName: string = '';
-  playerName: string = '';
-  chronicle: string = '';
-
+export class Vampire extends BaseCharacter {
   nature: string = '';
   demeanor: string = '';
   concept: string = '';
@@ -146,7 +137,7 @@ export class Character {
     score: 0,
   };
   disposition: Disposition = {
-    type: 'SELFCONTROL',
+    type: 'SELF_CONTROL',
     score: 0,
   };
   courage: number = 0;
@@ -175,7 +166,7 @@ export class Character {
     return {
       name: this.characterName,
       player: this.playerName,
-      chronicle: this.chronicle,
+      chronicle: this.chronicleName,
       nature: this.nature,
       demeanor: this.demeanor,
       concept: this.concept,
@@ -238,7 +229,6 @@ export class Character {
 
   getCombatStats() {
     const initiative = 0;
-
     const celerity = 0;
     const fortitude = 0;
     const potence = 0;
@@ -272,7 +262,7 @@ export interface Continence {
 }
 
 export interface Disposition {
-  type: 'SELFCONTROL' | 'INSTINCT';
+  type: 'SELF_CONTROL' | 'INSTINCT';
   score: number;
 }
 export type Era = 'MODERN' | 'MEDIEVAL';
@@ -291,6 +281,7 @@ export interface Chronicle {
   name: string;
   id: number;
   era: Era;
+  storyTeller: string;
   version: 'V20' | 'V5' | 'V2';
   type: 'VAMPIRE' | 'MAGE' | 'HUMAN';
 }

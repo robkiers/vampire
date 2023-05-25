@@ -10,9 +10,13 @@ import { CharacterLookup, Chronicle } from 'src/app/core/interface/character';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-  @Input() list: CharacterLookup[] | Chronicle[] = [];
-  @Input() type: 'CHARACTER' | 'STORY' = 'CHARACTER';
-  @Output() selected = new EventEmitter<any>();
+  @Input({ required: true }) list: any[] = [];
+  @Input({ required: true }) type: 'CHARACTER' | 'STORY' = 'CHARACTER';
+  @Output() selected = new EventEmitter<number>();
 
   selectedId?: number;
+
+  select(id: number) {
+    this.selected.emit(id);
+  }
 }

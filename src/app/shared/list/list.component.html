@@ -1,7 +1,19 @@
 <div class="container">
-  <div *ngFor="let item of list" class="item">
-    <ng-container *ngIf="type === 'CHARACTER'"></ng-container>
-    <span [ngClass]="{ selected: item.id === selectedId }">• </span>
-    <span>{{ item.id }} {{ item.name }}</span>
-  </div>
+  <ng-container [ngSwitch]="type">
+    <ng-container *ngSwitchCase="'CHARACTER'">
+      <div *ngFor="let item of list" class="item" (click)="select(item.id)">
+        <span [ngClass]="{ selected: item.id === selectedId }">• </span>
+        <span>{{ item.name }}</span>
+        <span>{{ item.clan }}</span>
+        <span>{{ item.chronicle[0].name }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="'STORY'">
+      <div *ngFor="let item of list" class="item" (click)="select(item.id)">
+        <span [ngClass]="{ selected: item.id === selectedId }">• </span>
+        <span>{{ item.name }}</span>
+        <span>{{ item.storyTeller }}</span>
+      </div>
+    </ng-container>
+  </ng-container>
 </div>

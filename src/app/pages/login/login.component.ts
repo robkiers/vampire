@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonComponent } from 'src/app/shared/button/button.component';
 import { FormInputComponent } from 'src/app/shared/form-input/form-input.component';
@@ -12,7 +12,9 @@ import { FormInputComponent } from 'src/app/shared/form-input/form-input.compone
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  router = inject(Router);
+
+  constructor() {}
 
   logIn() {
     this.router.navigate(['main']);

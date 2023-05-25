@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { FormInputComponent } from 'src/app/shared/form-input/form-input.component';
 import {
@@ -7,6 +7,9 @@ import {
   Era,
 } from 'src/app/core/interface/character';
 import { ListComponent } from 'src/app/shared/list/list.component';
+import { Router } from '@angular/router';
+import { StoryService } from 'src/app/core/services/story.service';
+import { CharacterService } from 'src/app/core/services/character.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,9 +19,13 @@ import { ListComponent } from 'src/app/shared/list/list.component';
   imports: [ButtonComponent, FormInputComponent, ListComponent],
 })
 export class LandingPageComponent {
-  storyList: Chronicle[] = [];
-  characterList: CharacterLookup[] = [];
+  router = inject(Router);
+  storyService = inject(StoryService);
+  characterService = inject(CharacterService);
 
+  // storyList: Chronicle[] = this.storyService.getStoryList();
+  characterList: CharacterLookup[] = [];
+  storyList: Chronicle[] = [];
   constructor() {
     this.storyList = [
       {
@@ -27,6 +34,7 @@ export class LandingPageComponent {
         era: 'MEDIEVAL',
         version: 'V20',
         type: 'VAMPIRE',
+        storyTeller: 'Rob',
       },
       {
         name: 'Kiev',
@@ -34,6 +42,7 @@ export class LandingPageComponent {
         era: 'MEDIEVAL',
         version: 'V2',
         type: 'VAMPIRE',
+        storyTeller: 'Rob',
       },
     ];
     this.characterList = [
@@ -47,6 +56,7 @@ export class LandingPageComponent {
             era: 'MEDIEVAL',
             version: 'V20',
             type: 'VAMPIRE',
+            storyTeller: 'Rob',
           },
         ],
         era: 'MEDIEVAL',
@@ -64,6 +74,7 @@ export class LandingPageComponent {
             era: 'MEDIEVAL',
             version: 'V20',
             type: 'VAMPIRE',
+            storyTeller: 'Rob',
           },
         ],
         era: 'MEDIEVAL',
@@ -72,5 +83,13 @@ export class LandingPageComponent {
         clan: 'gangrel',
       },
     ];
+  }
+
+  gotToStory(id: number) {
+    this.router.navigate(['story/' + id]);
+  }
+
+  gotToCharacter() {
+    // this.router.navigate(['character']);
   }
 }

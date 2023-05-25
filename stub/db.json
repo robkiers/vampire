@@ -1,0 +1,78 @@
+{
+  "storyCharacterList": [
+    {
+      "name": "Citrio",
+      "id": 1,
+      "chronicle": [
+        {
+          "name": "Millenium",
+          "id": 1,
+          "era": "MEDIEVAL",
+          "version": "V20",
+          "type": "VAMPIRE",
+          "storyTeller": "Rob"
+        }
+      ],
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "clan": "ventrue"
+    },
+    {
+      "name": "Kearthe",
+      "id": 2,
+      "chronicle": [
+        {
+          "name": "Millenium",
+          "id": 1,
+          "era": "MEDIEVAL",
+          "version": "V20",
+          "type": "VAMPIRE",
+          "storyTeller": "Rob"
+        }
+      ],
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "clan": "gangrel"
+    }
+  ],
+  "playerCharacterList": [
+    {
+      "name": "Citrio",
+      "id": 1,
+      "chronicle": [
+        {
+          "name": "Millenium",
+          "id": 1,
+          "era": "MEDIEVAL",
+          "version": "V20",
+          "type": "VAMPIRE",
+          "storyTeller": "Rob"
+        }
+      ],
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "clan": "ventrue"
+    }
+  ],
+  "storyList": [
+    {
+      "name": "Millenium",
+      "id": 1,
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "storyTeller": "Rob"
+    },
+    {
+      "name": "Kiev",
+      "id": 2,
+      "era": "MEDIEVAL",
+      "version": "V2",
+      "type": "VAMPIRE",
+      "storyTeller": "Rob"
+    }
+  ]
+}
