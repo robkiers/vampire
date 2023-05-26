@@ -7,8 +7,8 @@
       <div>
         <app-list
           type="STORY"
-          [list]="storyList"
-          (selected)="gotToStory($event)"
+          [list]="(storyList$ | async) || []"
+          (selected)="goToStory($event)"
         ></app-list>
       </div>
     </div>
@@ -28,7 +28,10 @@
     <h2>Character Vault</h2>
     <div class="panel">
       <h3>Load character</h3>
-      <app-list type="CHARACTER" [list]="characterList"></app-list>
+      <app-list
+        type="CHARACTER"
+        [list]="(characterList$ | async) || []"
+      ></app-list>
     </div>
     <div class="panel">
       <h3>Create character</h3>

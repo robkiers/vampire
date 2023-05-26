@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CombatOverviewComponent } from '../../combat/combat-overview/combat-overview.component';
 import { CharacterEditorComponent } from '../../character/character-editor/character-editor.component';
-import { NgIf } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { ListComponent } from '../../../shared/list/list.component';
 import { ButtonComponent } from '../../../shared/button/button.component';
-import { CharacterLookup } from 'src/app/core/interface/character';
+import { CharacterLookup, Vampire } from 'src/app/core/interface/character';
+import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { CharacterService } from 'src/app/core/services/character.service';
 
 @Component({
   selector: 'app-overview',
@@ -17,68 +20,32 @@ import { CharacterLookup } from 'src/app/core/interface/character';
     NgIf,
     CharacterEditorComponent,
     CombatOverviewComponent,
+    AsyncPipe,
+    JsonPipe,
   ],
 })
 export class OverviewComponent {
-  characterList: CharacterLookup[] = [
-    {
-      name: 'Citrio',
-      id: 1,
-      chronicle: [
-        {
-          name: 'Millenium',
-          id: 1,
-          era: 'MEDIEVAL',
-          version: 'V20',
-          type: 'VAMPIRE',
-          storyTeller: 'Rob',
-        },
-      ],
-      era: 'MEDIEVAL',
-      version: 'V20',
-      type: 'VAMPIRE',
-      clan: 'ventrue',
-    },
-    {
-      name: 'Kearthe',
-      id: 2,
-      chronicle: [
-        {
-          name: 'Millenium',
-          id: 1,
-          era: 'MEDIEVAL',
-          version: 'V20',
-          type: 'VAMPIRE',
-          storyTeller: 'Rob',
-        },
-      ],
-      era: 'MEDIEVAL',
-      version: 'V20',
-      type: 'VAMPIRE',
-      clan: 'gangrel',
-    },
-  ];
+  router = inject(Router);
+  characterService = inject(CharacterService);
 
-  playerList: CharacterLookup[] = [
-    {
-      name: 'Kearthe',
-      id: 3,
-      chronicle: [
-        {
-          name: 'Millenium',
-          id: 1,
-          era: 'MEDIEVAL',
-          version: 'V20',
-          type: 'VAMPIRE',
-          storyTeller: 'Rob',
-        },
-      ],
-      era: 'MEDIEVAL',
-      version: 'V20',
-      type: 'VAMPIRE',
-      clan: 'gangrel',
-    },
-  ];
+  storyId = 0;
+  activeCharacterID = signal(0);
+
+  characterList$: Observable<CharacterLookup[]> =
+    this.characterService.getStoryCharacterList(this.storyId);
+  playerList$: Observable<CharacterLookup[]> =
+    this.characterService.getStoryPlayerList(this.storyId);
+
+  character$: Observable<Vampire> = of(new Vampire());
+
+  ef = effect(() => {
+    console.log('effect', this.activeCharacterID());
+    if (this.activeCharacterID() !== 0) {
+      this.character$ = this.characterService.getCharacter(
+        this.activeCharacterID()
+      );
+    }
+  });
 
   quickCharacterList: [] = [];
 
@@ -91,6 +58,16 @@ export class OverviewComponent {
       this.mode = 'COMBATMODE';
     }
   }
+
+  goToMain() {
+    this.router.navigate(['main']);
+  }
+
+  setActiveChar(id: number) {
+    this.activeCharacterID.set(id);
+  }
+
+  // submit()
 }
 
 // export interface characterList {

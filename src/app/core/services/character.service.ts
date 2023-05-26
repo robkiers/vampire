@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Vampire } from '../interface/character';
+import { CharacterLookup, Vampire } from '../interface/character';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class CharacterService {
 
   constructor() {}
 
-  getCharacter(id: string): Observable<Vampire> {
+  getCharacter(id: number): Observable<Vampire> {
     return this.http.get<Vampire>('character/' + id);
   }
 
-  deleteCharacter(id: string) {
+  deleteCharacter(id: number) {
     return this.http.delete<boolean>('character/delete', id);
   }
 
@@ -27,11 +27,15 @@ export class CharacterService {
     return this.http.post<boolean>('character/create', character);
   }
 
-  getStoryCharacterList(storyId: string): Observable<Vampire[]> {
-    return this.http.get<Vampire[]>('character/list/story/' + storyId);
+  getCharacterList(): Observable<CharacterLookup[]> {
+    return this.http.get<CharacterLookup[]>('character');
   }
 
-  getPlayerCharacterList(playerId: string): Observable<Vampire[]> {
-    return this.http.get<Vampire[]>('character/list/player/' + playerId);
+  getStoryCharacterList(storyId: number): Observable<CharacterLookup[]> {
+    return this.http.get<CharacterLookup[]>('character/story/' + storyId);
+  }
+
+  getStoryPlayerList(storyId: number): Observable<CharacterLookup[]> {
+    return this.http.get<CharacterLookup[]>('character/player/' + storyId);
   }
 }

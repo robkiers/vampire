@@ -5,19 +5,32 @@
   <div class="border">
     <h2>Mode</h2>
     <app-button (click)="toggleMode()">Toggle Mode</app-button>
-    <!-- <app-button (click)="toggleMode()">View Mode</app-button> -->
     <h2>Player List</h2>
-    <app-list type="CHARACTER" [list]="playerList"></app-list>
+    <app-list
+      type="CHARACTER"
+      [list]="(playerList$ | async) || []"
+      (selected)="setActiveChar($event)"
+    ></app-list>
     <h2>Quick List</h2>
-    <app-list type="CHARACTER" [list]="characterList"></app-list>
+    <app-list
+      type="CHARACTER"
+      [list]="(characterList$ | async) || []"
+      (selected)="setActiveChar($event)"
+    ></app-list>
     <h2>Full list</h2>
     <span>search</span>
-    <app-list type="CHARACTER" [list]="characterList"></app-list>
+    <app-list
+      type="CHARACTER"
+      [list]="(characterList$ | async) || []"
+      (selected)="setActiveChar($event)"
+    ></app-list>
     <app-button [disabled]="true">Create new</app-button>
   </div>
   <app-character-editor
     class="border"
     *ngIf="mode === 'VIEWMODE'"
+    [character]="character$ | async"
   ></app-character-editor>
   <app-combat-overview *ngIf="mode === 'COMBATMODE'"></app-combat-overview>
 </div>
+<app-button (click)="goToMain()">Return</app-button>

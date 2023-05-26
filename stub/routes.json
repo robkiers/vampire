@@ -1,0 +1,6 @@
+{
+  "/character": "/characterLookup",
+  "/character/:id": "/character",
+  "/character/story/:id": "/storyCharacterList",
+  "/character/player/:id": "/storyCharacterList"
+}

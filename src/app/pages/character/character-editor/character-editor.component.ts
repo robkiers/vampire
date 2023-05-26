@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, SimpleChanges, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -11,6 +11,7 @@ import { ButtonComponent } from '../../../shared/button/button.component';
 import { AbilityInputComponent } from '../../../shared/ability-input/ability-input.component';
 import { FormInputComponent } from '../../../shared/form-input/form-input.component';
 import { NgFor } from '@angular/common';
+import { CharacterService } from 'src/app/core/services/character.service';
 
 @Component({
   selector: 'app-character-editor',
@@ -26,21 +27,37 @@ import { NgFor } from '@angular/common';
   ],
 })
 export class CharacterEditorComponent {
-  @Input() character: Vampire = new Vampire();
-  formBuilder = inject(FormBuilder);
+  @Input() character: Vampire | null = null;
 
-  controls: any;
+  formBuilder = inject(FormBuilder);
+  characterService = inject(CharacterService);
+
+  controls: ControlsByType = controlsByType;
   characterForm: FormGroup;
 
   constructor() {
-    this.controls = [];
-    this.characterForm = this.createForm();
+    this.characterForm = this.createForm(this.character ?? new Vampire());
   }
-  createForm(): FormGroup {
-    const controls: Control[] = Object.entries(this.character).map(
+
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.name.currentValue is typed as `any`
+    if (changes['character']) {
+      console.log(changes);
+      this.patch(changes['character'].currentValue);
+    }
+  }
+
+  patch(value: Vampire) {
+    this.characterForm.patchValue(value);
+  }
+
+  createForm(character: Vampire): FormGroup {
+    const controls: Control[] = Object.entries(character).map(
       ([key, value]) => ({
         name: key,
-        label: key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()),
+        label: key
+          .replace(/([A-Z])/g, ' $1')
+          .replace(/^./, (str) => str.toUpperCase()),
         max: 10,
         value:
           typeof value[1] === 'object'
@@ -158,7 +175,7 @@ const controlsByType: ControlsByType = {
 export const general = [
   'characterName',
   'playerName',
-  'chronicle',
+  'chronicleName',
   'nature',
   'demeanor',
   'concept',

@@ -1,4 +1,42 @@
 {
+  "characterLookup": [
+    {
+      "name": "Citrio",
+      "id": 1,
+      "chronicle": [
+        {
+          "name": "Millenium",
+          "id": 1,
+          "era": "MEDIEVAL",
+          "version": "V20",
+          "type": "VAMPIRE",
+          "storyTeller": "Rob"
+        }
+      ],
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "clan": "ventrue"
+    },
+    {
+      "name": "Kearthe",
+      "id": 2,
+      "chronicle": [
+        {
+          "name": "Millenium",
+          "id": 1,
+          "era": "MEDIEVAL",
+          "version": "V20",
+          "type": "VAMPIRE",
+          "storyTeller": "Rob"
+        }
+      ],
+      "era": "MEDIEVAL",
+      "version": "V20",
+      "type": "VAMPIRE",
+      "clan": "gangrel"
+    }
+  ],
   "storyCharacterList": [
     {
       "name": "Citrio",
@@ -57,7 +95,7 @@
       "clan": "ventrue"
     }
   ],
-  "storyList": [
+  "story": [
     {
       "name": "Millenium",
       "id": 1,
@@ -74,5 +112,202 @@
       "type": "VAMPIRE",
       "storyTeller": "Rob"
     }
-  ]
+  ],
+  "character": {
+    "id": 1,
+    "chronicleId": 1,
+    "characterType": "VAMPIRE",
+    "characterEra": "MEDIEVAL",
+    "isPlayer": false,
+    "characterName": "Citrio",
+    "playerName": "Rob",
+    "chronicleName": "Millenium",
+    "nature": "",
+    "demeanor": "",
+    "concept": "",
+    "clan": "",
+    "generation": 13,
+    "sire": "",
+    "strength": {
+      "score": 3,
+      "specialty": ""
+    },
+    "dexterity": {
+      "score": 5,
+      "specialty": ""
+    },
+    "stamina": {
+      "score": 3,
+      "specialty": ""
+    },
+    "charisma": {
+      "score": 6,
+      "specialty": ""
+    },
+    "manipulation": {
+      "score": 5,
+      "specialty": ""
+    },
+    "appearance": {
+      "score": 3,
+      "specialty": ""
+    },
+    "perception": {
+      "score": 3,
+      "specialty": ""
+    },
+    "intelligence": {
+      "score": 6,
+      "specialty": ""
+    },
+    "wits": {
+      "score": 4,
+      "specialty": ""
+    },
+    "alertness": {
+      "score": 4,
+      "specialty": "ambush"
+    },
+    "athletics": {
+      "score": 1,
+      "specialty": ""
+    },
+    "awareness": {
+      "score": 3,
+      "specialty": ""
+    },
+    "brawl": {
+      "score": 2,
+      "specialty": ""
+    },
+    "empathy": {
+      "score": 3,
+      "specialty": ""
+    },
+    "expression": {
+      "score": 4,
+      "specialty": ""
+    },
+    "intimidation": {
+      "score": 2,
+      "specialty": ""
+    },
+    "leadership": {
+      "score": 2,
+      "specialty": ""
+    },
+    "legerdemain": {
+      "score": 0
+    },
+    "subterfuge": {
+      "score": 5,
+      "specialty": ""
+    },
+    "animalKen": {
+      "score": 1,
+      "specialty": ""
+    },
+    "archery": {
+      "score": 2,
+      "specialty": ""
+    },
+    "commerce": {
+      "score": 3,
+      "specialty": ""
+    },
+    "etiquette": {
+      "score": 4,
+      "specialty": ""
+    },
+    "melee": {
+      "score": 2,
+      "specialty": ""
+    },
+    "performance": {
+      "score": 0
+    },
+    "ride": {
+      "score": 1,
+      "specialty": ""
+    },
+    "stealth": {
+      "score": 2,
+      "specialty": ""
+    },
+    "survival": {
+      "score": 1,
+      "specialty": ""
+    },
+    "academics": {
+      "score": 2,
+      "specialty": ""
+    },
+    "enigmas": {
+      "score": 1,
+      "specialty": ""
+    },
+    "hearthWisdom": {
+      "score": 1,
+      "specialty": ""
+    },
+    "investigation": {
+      "score": 2,
+      "specialty": ""
+    },
+    "law": {
+      "score": 4,
+      "specialty": ""
+    },
+    "medicine": {
+      "score": 0
+    },
+    "occult": {
+      "score": 2,
+      "specialty": ""
+    },
+    "politics": {
+      "score": 6,
+      "specialty": ""
+    },
+    "seneschal": {
+      "score": 2,
+      "specialty": ""
+    },
+    "theology": {
+      "score": 2,
+      "specialty": ""
+    },
+    "continence": {
+      "score": 3,
+      "specialty": ""
+    },
+    "disposition": {
+      "score": 4,
+      "specialty": ""
+    },
+    "courage": {
+      "score": 2,
+      "specialty": ""
+    },
+    "otherTraits": [""],
+    "roadName": "",
+    "roadRating": {
+      "score": 6,
+      "specialty": ""
+    },
+    "roadAura": "",
+    "willpower": {
+      "score": 5,
+      "specialty": ""
+    },
+    "bloodPool": {
+      "score": 10,
+      "specialty": ""
+    },
+    "health": {
+      "bruised": 0,
+      "lethal": 0,
+      "aggravated": 0
+    }
+  }
 }

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "stub":  "json-server --watch stub/db.json",
+    "stub":  "json-server --watch stub/db.json --routes stub/routes.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --coverage",
