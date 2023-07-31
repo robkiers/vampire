@@ -1,9 +1,10 @@
 <div class="container">
   <h1>The World of Darkness</h1>
-  <form>
-    <app-form-input class="form-input"></app-form-input>
-    <app-form-input class="form-input"></app-form-input>
-    <app-button (click)="logIn()">Log in</app-button>
+  <form [formGroup]="formGroup">
+    <app-form-input formControlName="userName" class="form-input"></app-form-input>
+    <app-form-input formControlName="password" class="form-input"></app-form-input>
+    <app-button (click)="onSubmit()">Log in</app-button>
     <app-button [disabled]="true">Create account</app-button>
+    <app-button (click)="skip()">Skip</app-button>
   </form>
 </div>

@@ -32,7 +32,7 @@ export class OverviewComponent {
   activeCharacterID = signal(0);
 
   characterList$: Observable<CharacterLookup[]> =
-    this.characterService.getStoryCharacterList(this.storyId);
+    this.characterService.gtAllCharactersByChronicle();
   playerList$: Observable<CharacterLookup[]> =
     this.characterService.getStoryPlayerList(this.storyId);
 

@@ -3,8 +3,9 @@
   margin: 1rem;
   grid-template-columns: 1fr 1fr 50rem;
   gap: 1rem;
-  //   grid-template-rows: 10rem 1fr;
 }
-.border {
+
+.panel {
+  padding: 1rem;
   border: 1px solid black;
 }

@@ -1,8 +1,8 @@
 <div class="overviewContainer">
-  <div class="border">
+  <div class="panel">
     <h2>Music</h2>
   </div>
-  <div class="border">
+  <div class="panel">
     <h2>Mode</h2>
     <app-button (click)="toggleMode()">Toggle Mode</app-button>
     <h2>Player List</h2>
@@ -27,7 +27,7 @@
     <app-button [disabled]="true">Create new</app-button>
   </div>
   <app-character-editor
-    class="border"
+    class="panel"
     *ngIf="mode === 'VIEWMODE'"
     [character]="character$ | async"
   ></app-character-editor>
